@@ -1,3 +1,9 @@
 theme: jekyll-theme-cayman
 name: Chimera
 description: A bridge between big data and semantic technologies
+buttons:
+  zip_url: www.google.it
+  zip_title: TEST
+  zip_hide: false
+  tar_hide: true
+  github_hide: true

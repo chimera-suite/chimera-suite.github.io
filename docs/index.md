@@ -27,35 +27,39 @@ In the architectural example, we can see that the Data Scientists can write anal
 
 __PREREQUISITE__: For running OntopSpark it is needed to have installed `docker-compose` on your local system. If you do not have it installed, please follow this [official guide](https://docs.docker.com/compose/install/).
 
-It is possible to run the Ontop endpoint by simply running the `docker-compose-ontop.yml` file available in the [infrastructure template](https://github.com/chimera-suite/infrastructure) using the following command.
+It is possible to run the Ontop endpoint by simply running the [`docker-compose-ontop.yml`](https://github.com/chimera-suite/infrastructure/blob/main/docker-compose-ontop.yml) file. Before starting, this file has to be configured with the following parameters:
+
+```
+environment:
+  - `ONTOP_ONTOLOGY_FILE`=/opt/ontop/input/DB-ontology.owl"  # TODO
+  - `ONTOP_MAPPING_FILE`=/opt/ontop/input/mapping.obda"  #TODO
+  - `ONTOP_PROPERTIES_FILE`=/opt/ontop/input/jdbc.properties"  #TODO
+ volumes:
+    - "./ontop/input:/opt/ontop/input"   # load Ontop configuration files inside docker environment
+    - "./ontop/jdbc:/opt/ontop/jdbc"   # load Spark JDBC driver inside docker environment
+```
+
+Where the `environment` section contains the Ontop's variables for instantiating the endpoint, respectively:
+1. `ONTOP_ONTOLOGY_FILE` : the file containing the ontological concepts needed by the Ontop reasoner for describing the semantic of the relational data stored in the data lake.
+3. `ONTOP_MAPPING_FILE` : the mapping file for the RDF-to-SQL translations performed by the Virtual Knowledge Graph mechanism of Ontop.
+2. `ONTOP_PROPERTIES_FILE` : a configuration file for correctly instantiating the JDBC connection to the Apache Spark query engine. In particular, the file must contain the JDBC address of the Apache Spark Thriftserver.
+
+Instead, the `volumes section` loads the Ontop's files inside the docker environment. By default (in the code above), you need to create two folders, `/ontop/input` and `/ontop/JDBC` for storing respectively the configuration files (`.owl`,`.obda`,`.properties`) and the JDBC `.jar` driver file.
+
+
+ Now, it is possible to start the Ontop instance by running the following command:
 
 ```
 docker-compose -f docker-compose-ontop.yml up -d
 ```
-This starts an Ontop instance.
-In particular, the instance is configured to communicate with the Apache Spark Thriftserver.
 The web interface is available at [http://ontop:8080](http://localhost:8090).
 
-The docker image can be configured with the following parameters in the `docker-compose-ontop.yml` file.
+You can learn how to use OntopSpark inside an infrastructure by following this [demo](https://github.com/chimera-suite/use-case).
 
-```
-environment:
-  - `ONTOP_ONTOLOGY_FILE`=/opt/ontop/input/DB-ontology.owl"
-  - `ONTOP_MAPPING_FILE`=/opt/ontop/input/mapping.obda"
-  - `ONTOP_PROPERTIES_FILE`=/opt/ontop/input/jdbc.properties"
-volumes:
-    - "./ontop/input:/opt/ontop/input" # load Ontop configuration files inside docker image
-    - "./ontop/jdbc:/opt/ontop/jdbc" # load Spark JDBC driver
-```
-
-Where the `environment` contains the Ontop environment variables for instantiating the endpoint, respectively:
-1. `ONTOP_ONTOLOGY_FILE` : the file containing the ontological concepts needed by the Ontop reasoner for describing the semantic of the relational data stored in the data lake.
-3. `ONTOP_MAPPING_FILE` : the mapping file for the RDF-to-SQL translations performed by the Virtual Knowledge Graph mechanism of Ontop.
-2. `ONTOP_PROPERTIES_FILE` : a configuration file for correctly instantiating the JDBC connection to the Apache Spark query engine.
 
 ### 2. PySPARQL
 
-It is possible to install the PySPARQL library on python notebooks by simply running the following command.
+It is possible to install the PySPARQL library on a python notebooks by simply running the following command.
 
 ```
 !pip install SPARQL2Spark

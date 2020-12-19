@@ -11,7 +11,7 @@ Chimera is a software suite that aims at better connecting the big data world wi
 
 This project aims to build a __general framework__ that can be possibly applied to many industrial scenarios, in order  to improve the support of KG-empowered analytical solutions to big data and make possible the creation of _round-tripping_ data pipelines. Therefore, we have developed Chimera for being __scalable__ and __problem-agnostic__, to encourage the adoption by many companies.
 
-Hence, we think it is very important to make all components available as [Docker images](https://hub.docker.com/orgs/chimerasuite/repositories). We have also created an [infrastructure template](https://github.com/chimera-suite/infrastructure) and a [demo](https://github.com/chimera-suite/use-case) for showing how to use Chimera in practice for performing a _round-trip_ analysis.
+Hence, we think it is very important to make all components available as [Docker images](https://hub.docker.com/u/chimerasuite). We have also created an [infrastructure template](https://github.com/chimera-suite/infrastructure) and a [demo](https://github.com/chimera-suite/use-case) for showing how to use Chimera in practice for performing a _round-trip_ analysis.
 
 ## Rond-tripping analyses
 

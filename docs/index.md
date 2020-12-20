@@ -5,7 +5,7 @@ Chimera is a software suite that aims at better connecting the big data world wi
 
 - [__OntopSpark__](https://github.com/chimera-suite/OntopSpark): an extension of the  Ontop Ontology Based Data Access (OBDA) system, which uses Apache Spark as a query processing engine for accessing the data stored in data lakes. The integration of a distributed data processing engine such as Apache Spark allows exploiting the Ontop data integration capabilities at its maximum potential, as it brings all the advantages of velocity and parallel computation typical of a distributed system to the task of solving a SPARQL query.
 
-- [__PySPARQL__](https://github.com/chimera-suite/PySPARQL): a library that allows the users to query a SPARQL endpoint using a python notebook, process the response inside Apache Spark, and eventually store the Spark DataFrame/GraphFrame into the data lake.
+- [__PySPARQL__](https://github.com/chimera-suite/PySPARQL): a library that allows the users to query a SPARQL endpoint using a python notebook, process the response inside Apache Spark, and eventually store the Spark DataFrame / GraphFrame into the data lake.
 
 ## Scope
 
@@ -67,6 +67,6 @@ It is possible to install the PySPARQL library on a python notebooks by simply r
 
 For more details on how to use the library, please see the [PySPARQL documentation](https://pypi.org/project/PySPARQL/0.0.5/).
 
-## Aknowledgements
+## Acknowledgements
 
-The Chimera project has been developed and maintained for the next years thanks to Ricerca sul Sistema Energetico S.p.A. co-founding and Politecnico di Milano’s own resources.
+The Chimera project has been developed by Politecnico di Milano. Thanks to Ricerca sul Sistema Energetico S.p.A. co-founding and Politecnico di Milano's resources, Chimera will be maintained for the next years and updated whenever a new version of Ontop or Apache Spark becomes available.

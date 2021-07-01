@@ -1,6 +1,8 @@
 name: Chimera
 title: Chimera
 description: A bridge between big data analytics and semantic technologies
+show_downloads: true
 theme: jekyll-theme-cayman
 github:
   repository_url: https://github.com/chimera-suite
+

@@ -7,7 +7,7 @@ Chimera is a software suite that aims at better connecting the big data world wi
 
 - [__PySPARQL__](https://github.com/chimera-suite/PySPARQL): a library that allows the users to query a SPARQL endpoint using a python notebook, process the response with Apache Spark, and eventually store the Spark DataFrame / GraphFrame into the data lake.
 
-## Scope
+## Scope<a id="s"/>
 
 This project aims to build a __general framework__ that can be possibly applied to many industrial scenarios, in order  to improve the support of KG-empowered analytical solutions to big data and make possible the creation of _round-tripping_ data pipelines. Therefore, we have developed Chimera for being __scalable__ and __problem-agnostic__, to encourage the adoption by many companies.
 
